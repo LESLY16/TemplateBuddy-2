@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Master Hub & Studio</title>
+  <!-- Favicon for Browser Tab -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2310b981' stroke-width='2'><path d='M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5'/></svg>" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <div class="brand">
+      <div class="brand-favicon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+      </div>
+      <span>Web Master Hub & Studio</span>
+    </div>
+    <div class="controls">
+      <button class="btn btn-secondary" onclick="openDocsModal()">Documentation</button>
+      <button class="btn" onclick="openDonateModal()">♥ Donate</button>
+    </div>
+  </header>
+
+  <main>
+    <div class="gallery-header">
+      <h1>Template Studio Gallery</h1>
+      <p>Explore 12 feature-rich templates with interactive carousels, amenity grids, and design components.</p>
+    </div>
+    <div class="templates-grid" id="templatesGrid"></div>
+  </main>
+
+  <!-- Master Template Footer -->
+  <footer class="master-footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        <span>Web Master Hub & Studio</span>
+      </div>
+      <div class="footer-links">
+        <a href="#templatesGrid">Templates</a>
+        <a onclick="openDocsModal()">Documentation</a>
+        <a onclick="openPrivacyModal()">Privacy Policy</a>
+        <a onclick="openDonateModal()">Donate</a>
+      </div>
+      <p class="copyright">&copy; 2026 Web Master Hub & Studio. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Fullscreen Preview Lightbox -->
+  <div class="fullscreen-modal" id="fullscreenModal">
+    <div class="fullscreen-header">
+      <span id="modalTemplateTitle" class="fullscreen-title">Template Preview</span>
+      <div class="fullscreen-actions">
+        <button class="btn btn-secondary" onclick="downloadModalTemplate()">Download Code</button>
+        <button class="btn" onclick="closeFullscreenModal()">Close Preview ✕</button>
+      </div>
+    </div>
+    <div class="fullscreen-body">
+      <div class="watermark"><div class="watermark-text">ULTRAEDGEAI WATERMARKED</div></div>
+      <iframe id="fullscreenIframe" title="Full Template Preview" sandbox="allow-scripts allow-same-origin"></iframe>
+    </div>
+  </div>
+
+  <!-- Privacy Policy Modal -->
+  <div class="modal-overlay" id="privacyModal">
+    <div class="modal">
+      <div class="modal-header">
+        <h2>Privacy Policy & Principles</h2>
+        <button class="btn btn-secondary" onclick="closePrivacyModal()">✕</button>
+      </div>
+      <div class="modal-body">
+        <p>At Web Master Hub & Studio, we believe in full transparency regarding user data, open-source sustainability, and platform improvement.</p>
+        
+        <h3>1. How We Use Donated Money</h3>
+        <p>100% of community contributions directly fund the continuous maintenance and growth of Web Master Hub:</p>
+        <ul>
+          <li><strong>Infrastructure & Hosting:</strong> Maintaining high-speed CDN delivery and edge hosting servers.</li>
+          <li><strong>Free Template Development:</strong> Funding designers and developers to create new production-grade UI templates.</li>
+          <li><strong>Open Source Maintenance:</strong> Updating design components, fixing browser compatibility issues, and refining mobile UI experience.</li>
+        </ul>
+
+        <h3>2. How We Make Your Experience Better</h3>
+        <p>We prioritize zero-friction usability:</p>
+        <ul>
+          <li><strong>No Tracking & No Ads:</strong> We do not track your browsing history or serve intrusive third-party advertisements.</li>
+          <li><strong>Local Browser Execution:</strong> Template previews run locally inside secure isolated sandboxes without submitting your data to external servers.</li>
+          <li><strong>Instant Export:</strong> One-click HTML file generation gives you immediate code ownership.</li>
+        </ul>
+
+        <h3>3. How We Improve Our Products</h3>
+        <p>Product decisions are driven entirely by developer feedback and design benchmarks:</p>
+        <ul>
+          <li><strong>Component Upgrades:</strong> Adding modern web sections (Carousels, Glassmorphic cards, Amenity grids).</li>
+          <li><strong>Performance Optimization:</strong> Ensuring light, framework-agnostic CSS/HTML code structure for maximum page speed.</li>
+        </ul>
+      </div>
+      <div class="modal-actions">
+        <button class="btn" onclick="closePrivacyModal()">Understood</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Documentation Modal -->
+  <div class="modal-overlay" id="docsModal">
+    <div class="modal">
+      <div class="modal-header">
+        <h2>Studio Documentation</h2>
+        <button class="btn btn-secondary" onclick="closeDocsModal()">✕</button>
+      </div>
+      <div class="modal-body">
+        <p>Welcome to Web Master Hub! Follow these quick steps to get started with your web templates.</p>
+        
+        <h3>1. Exploring Templates</h3>
+        <p>Browse through 12 watermarked card previews in the main gallery grid. Each card displays the template title, category badge, and included component specs (e.g., <code>Carousel</code>, <code>Amenity Grid</code>, <code>Pricing</code>).</p>
+
+        <h3>2. Fullscreen Lightbox Preview</h3>
+        <p>Click the <code>👁️ Preview</code> button on any card to view the template in responsive lightbox mode. Previews remain protected under watermark mode for studio viewing.</p>
+
+        <h3>3. Downloading Code</h3>
+        <p>Click <code>⬇️ Download</code> to export an unwatermarked, single-file <code>.html</code> file directly to your system. Each download includes bundled CSS styles, HTML structures, and responsive layouts ready for deployment.</p>
+
+        <h3>4. Customizing Downloaded Templates</h3>
+        <p>All templates are 100% vanilla HTML5/CSS3. You can edit variables in the <code>:root</code> CSS selector to instantly retheme primary colors, fonts, or background gradients.</p>
+      </div>
+      <div class="modal-actions">
+        <button class="btn" onclick="closeDocsModal()">Got It</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Donation Modal -->
+  <div class="modal-overlay" id="donateModal">
+    <div class="modal donation-modal">
+      <div class="modal-header">
+        <h2>Support Open Source</h2>
+        <button class="btn btn-secondary" onclick="closeDonateModal()">✕</button>
+      </div>
+      <div class="modal-body">
+        <p>Support future template releases, free UI components, and platform upgrades via Direct Bank Transfer.</p>
+        <div style="background: var(--bg-main); border: 1px solid var(--border-color); border-radius: 8px; padding: 1.25rem; margin: 1.25rem 0; font-size: 0.9rem;">
+          <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+            <div style="display: flex; justify-content: space-between; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem;">
+              <span style="color: var(--text-dim);">Account Name:</span>
+              <strong style="color: var(--text-main);">Dummy Man</strong>
+            </div>
+            <div style="display: flex; justify-content: space-between; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem;">
+              <span style="color: var(--text-dim);">Account No:</span>
+              <strong style="color: var(--accent-color); font-family: monospace; font-size: 1rem;">0531100012589</strong>
+            </div>
+            <div style="display: flex; justify-content: space-between; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem;">
+              <span style="color: var(--text-dim);">IFSC Code:</span>
+              <strong style="color: var(--text-main); font-family: monospace;">ARB0001608</strong>
+            </div>
+            <div style="display: flex; justify-content: space-between;">
+              <span style="color: var(--text-dim);">Branch:</span>
+              <strong style="color: var(--text-main);">Magaluru</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-actions">
+        <button class="btn" onclick="closeDonateModal()">Done</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
